@@ -1,7 +1,8 @@
 const boom = require('@hapi/boom');
+const { Customer } = require('../db/models/customer.model');
 
 const { models } = require('./../libs/sequelize')
-
+// const { Customer } = require('../db/models/customer.model')
 class UserService {
   constructor() {
   }
@@ -13,7 +14,10 @@ class UserService {
 
   async find() {
     const rta = await models.User.findAll({
-      include: ['customer']
+      include:[ { 
+        model: Customer, 
+        as: 'customer'
+      }] 
     });
     return rta;
   }

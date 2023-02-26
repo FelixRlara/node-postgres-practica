@@ -15,6 +15,7 @@ const CategorySchema = {
     type: DataTypes.STRING
   },
   image: {
+    field: 'image',
     type: DataTypes.STRING,
     unique: true,
     allowNull: false,
@@ -31,8 +32,8 @@ class Category extends Model {
 
   static associate(models) {
     this.hasMany(models.Product, {
-       as: 'products',
-      foreignKey: 'categoryId'
+      as: 'products',
+      foreignKey: 'category_id'
       });
   }
 

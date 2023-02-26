@@ -21,7 +21,7 @@ const UserSchema = {
   role:{
     allowNull: false,
     type: DataTypes.STRING,
-    defaultValue: 'costomer'
+    defaultValue: 'customer'
   },
   createdAt: {
     allowNull: false,
@@ -35,7 +35,7 @@ class User extends Model {
   static associate(models){
     this.hasOne(models.Customer, {
       as: 'customer',
-      foreignKey: 'userId'
+      foreignKey: 'user_id'
      });
   }
 
